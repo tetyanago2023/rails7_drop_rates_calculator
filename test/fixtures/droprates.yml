@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  item_name: MyString
+  drop_chance: 1.5
+  boss_kills: 1
+  killed_per_drop: 1
+
+two:
+  item_name: MyString
+  drop_chance: 1.5
+  boss_kills: 1
+  killed_per_drop: 1

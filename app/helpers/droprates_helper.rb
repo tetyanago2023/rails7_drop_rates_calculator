@@ -1,0 +1,2 @@
+module DropratesHelper
+end

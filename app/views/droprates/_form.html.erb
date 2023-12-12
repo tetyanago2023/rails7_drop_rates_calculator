@@ -1,0 +1,40 @@
+<%= form_with(model: droprate, data: {
+  controller: "drop-rate",
+  drop_rate_id_value: droprate.id || 0
+  }) do |form| %>
+  <% if droprate.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(droprate.errors.count, "error") %> prohibited this droprate from being saved:</h2>
+
+      <ul>
+        <% droprate.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :item_name, style: "display: block" %>
+    <%= form.text_field :item_name %>
+  </div>
+
+  <div>
+    <%= form.label :drop_chance, style: "display: block" %>
+    <%= form.text_field :drop_chance %>
+  </div>
+
+  <div>
+    <%= form.label :boss_kills, style: "display: block" %>
+    <%= form.number_field :boss_kills %>
+  </div>
+
+  <div>
+    <%= form.label :killed_per_drop, style: "display: block" %>
+    <%= form.number_field :killed_per_drop %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

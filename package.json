@@ -1,0 +1,7 @@
+{
+  "name": "rails7_drop_rates_calculator",
+  "version": "1.0.0",
+  "dependencies": {
+    "@hotwired/stimulus": "^3.2.2"
+  }
+}

@@ -1,0 +1,14 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Droprates</h1>
+
+<div id="droprates">
+  <% @droprates.each do |droprate| %>
+    <%= render droprate %>
+    <p>
+      <%= link_to "Show this droprate", droprate %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New droprate", new_droprate_path %>

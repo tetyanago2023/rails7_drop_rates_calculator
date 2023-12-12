@@ -1,0 +1,10 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @droprate %>
+
+<div>
+  <%= link_to "Edit this droprate", edit_droprate_path(@droprate) %> |
+  <%= link_to "Back to droprates", droprates_path %>
+
+  <%= button_to "Destroy this droprate", @droprate, method: :delete %>
+</div>
