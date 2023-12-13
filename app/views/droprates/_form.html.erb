@@ -1,39 +1,46 @@
 <%= form_with(model: droprate, data: {
   controller: "drop-rate",
   drop_rate_id_value: droprate.id || 0
-  }) do |form| %>
-  <% if droprate.errors.any? %>
-    <div style="color: red">
-      <h2><%= pluralize(droprate.errors.count, "error") %> prohibited this droprate from being saved:</h2>
-
-      <ul>
-        <% droprate.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
-
+}) do |form| %>
   <div>
     <%= form.label :item_name, style: "display: block" %>
     <%= form.text_field :item_name %>
   </div>
-
-  <div>
-    <%= form.label :drop_chance, style: "display: block" %>
-    <%= form.text_field :drop_chance %>
+  <div class="field">
+    <%= form.label :kills_per_drop, "Kills per Drop" %>
+    <%= form.number_field :kills_per_drop,
+                          value: droprate.killed_per_drop || 0,
+                          data: {
+                            drop_rate_target: "killsPerDrop",
+                            action: "input->drop-rate#convertToPercentage input->drop-rate#submitFormOnChange" } %>
   </div>
-
-  <div>
-    <%= form.label :boss_kills, style: "display: block" %>
-    <%= form.number_field :boss_kills %>
+  <div class="field">
+    <%= form.label :drop_chance %>
+    <%= form.number_field :drop_chance, step: 0.0000001,
+                          value: droprate.drop_chance || 0.0,
+                          data: {
+                            drop_rate_target: "dropChance",
+                            action: "input->drop-rate#convertToKillsPerDrop input->drop-rate#submitFormOnChange" } %>
   </div>
-
-  <div>
-    <%= form.label :killed_per_drop, style: "display: block" %>
-    <%= form.number_field :killed_per_drop %>
+  <div class="field">
+    <%= form.label :boss_kills %>
+    <%= form.number_field :boss_kills,
+                          value: droprate.boss_kills || 0,
+                          data: {
+                            drop_rate_target: "bossKills",
+                            action: "input->drop-rate#calculateReceivedProbability input->drop-rate#submitFormOnChange" } %>
   </div>
-
+  <div class="field">
+    <%= form.label :number_of_drops, "Number of Drops" %>
+    <%= form.number_field :number_of_drops,
+                          min: 0,
+                          value: droprate.number_of_drops || 0,
+                          data: {
+                            drop_rate_target: "numberOfDrops",
+                            action: "input->drop-rate#calculateReceivedProbability input->drop-rate#submitFormOnChange"
+                          } %>
+  </div>
+  <div data-drop-rate-target="result"></div>
   <div>
     <%= form.submit %>
   </div>
