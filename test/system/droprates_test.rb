@@ -17,7 +17,7 @@ class DropratesTest < ApplicationSystemTestCase
     fill_in "Boss kills", with: @droprate.boss_kills
     fill_in "Drop chance", with: @droprate.drop_chance
     fill_in "Item name", with: @droprate.item_name
-    fill_in "Killed per drop", with: @droprate.killed_per_drop
+    fill_in "Killed per drop", with: @droprate.kills_per_drop
     click_on "Create Droprate"
 
     assert_text "Droprate was successfully created"
@@ -31,7 +31,7 @@ class DropratesTest < ApplicationSystemTestCase
     fill_in "Boss kills", with: @droprate.boss_kills
     fill_in "Drop chance", with: @droprate.drop_chance
     fill_in "Item name", with: @droprate.item_name
-    fill_in "Killed per drop", with: @droprate.killed_per_drop
+    fill_in "Killed per drop", with: @droprate.kills_per_drop
     click_on "Update Droprate"
 
     assert_text "Droprate was successfully updated"

@@ -9,7 +9,7 @@
   <div class="field">
     <%= form.label :kills_per_drop, "Kills per Drop" %>
     <%= form.number_field :kills_per_drop,
-                          value: droprate.killed_per_drop || 0,
+                          value: droprate.kills_per_drop || 0,
                           data: {
                             drop_rate_target: "killsPerDrop",
                             action: "input->drop-rate#convertToPercentage input->drop-rate#submitFormOnChange" } %>

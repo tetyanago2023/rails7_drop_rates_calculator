@@ -17,7 +17,7 @@ class DropratesControllerTest < ActionDispatch::IntegrationTest
 
   test "should create droprate" do
     assert_difference("Droprate.count") do
-      post droprates_url, params: { droprate: { boss_kills: @droprate.boss_kills, drop_chance: @droprate.drop_chance, item_name: @droprate.item_name, killed_per_drop: @droprate.killed_per_drop } }
+      post droprates_url, params: { droprate: { boss_kills: @droprate.boss_kills, drop_chance: @droprate.drop_chance, item_name: @droprate.item_name, kills_per_drop: @droprate.kills_per_drop } }
     end
 
     assert_redirected_to droprate_url(Droprate.last)
@@ -34,7 +34,7 @@ class DropratesControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update droprate" do
-    patch droprate_url(@droprate), params: { droprate: { boss_kills: @droprate.boss_kills, drop_chance: @droprate.drop_chance, item_name: @droprate.item_name, killed_per_drop: @droprate.killed_per_drop } }
+    patch droprate_url(@droprate), params: { droprate: { boss_kills: @droprate.boss_kills, drop_chance: @droprate.drop_chance, item_name: @droprate.item_name, kills_per_drop: @droprate.kills_per_drop } }
     assert_redirected_to droprate_url(@droprate)
   end
 

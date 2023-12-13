@@ -57,6 +57,6 @@ class DropratesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def droprate_params
-      params.require(:droprate).permit(:item_name, :drop_chance, :boss_kills, :killed_per_drop)
+      params.require(:droprate).permit(:item_name, :drop_chance, :boss_kills, :kills_per_drop)
     end
 end

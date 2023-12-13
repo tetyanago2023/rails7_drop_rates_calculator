@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2023_12_13_030610) do
+ActiveRecord::Schema[7.1].define(version: 2023_12_13_032704) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -18,7 +18,7 @@ ActiveRecord::Schema[7.1].define(version: 2023_12_13_030610) do
     t.string "item_name"
     t.float "drop_chance"
     t.integer "boss_kills"
-    t.integer "killed_per_drop"
+    t.integer "kills_per_drop"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "number_of_drops"
